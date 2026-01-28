@@ -1,0 +1,453 @@
+/* Video Stories Styles */
+
+.video-stories-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+.video-story-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-story-slide.active {
+    opacity: 1;
+}
+
+.video-story-slide video,
+.video-story-slide iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-story-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 10;
+    max-width: 70%;
+}
+
+.video-story-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.video-story-content p {
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.video-story-actions {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.action-btn {
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.video-story-actions .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: #ccc;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 5;
+}
+
+/* Desktop Popup Styles */
+.video-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-popup-content {
+    display: flex;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 80%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.popup-close-btn:hover {
+    color: #ccc;
+}
+
+.video-popup-left {
+    flex: 1;
+    position: relative;
+}
+
+.video-popup-right {
+    width: 400px;
+    padding: 20px;
+    overflow-y: auto;
+    background: white;
+}
+
+.popup-video-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-video-container video,
+.popup-video-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.popup-content-details h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.popup-actions {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.popup-like-btn,
+.popup-share-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.popup-like-btn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.popup-like-btn i.fas {
+    color: red;
+}
+
+.popup-share-btn {
+    background: #1877f2;
+    color: white;
+}
+
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+.submit-comment {
+    padding: 8px 15px;
+    background: #00a6ed;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Mobile Vertical Video Story View (TikTok/Reels Style) */
+.video-story-mobile-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-video-container video,
+.mobile-video-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-video-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+}
+
+.mobile-video-content {
+    margin-bottom: 100px; /* Space for action buttons */
+}
+
+.mobile-video-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.mobile-video-content p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.mobile-video-actions {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 10;
+}
+
+.mobile-action-btn {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    transition: transform 0.2s;
+    backdrop-filter: blur(10px);
+}
+
+.mobile-action-btn:hover {
+    transform: scale(1.1);
+}
+
+.mobile-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.mobile-close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+}
+
+/* Video Stories Grid (Archive Page) */
+.video-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-story-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.video-story-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    position: relative;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.video-story-item h2 {
+    padding: 10px;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .video-popup-content {
+        flex-direction: column;
+        height: 90%;
+        width: 95%;
+    }
+    
+    .video-popup-right {
+        width: 100%;
+        height: 40%;
+    }
+    
+    .video-story-content {
+        max-width: 60%;
+    }
+    
+    .video-stories-grid {
+        grid-template-columns: 1fr;
+    }
+}

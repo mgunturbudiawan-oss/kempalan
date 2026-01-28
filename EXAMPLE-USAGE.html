@@ -1,0 +1,225 @@
+<!-- 
+  CONTOH PENGGUNAAN REACT & MATERIAL DESIGN
+  Haliyora Theme
+  
+  File ini berisi contoh-contoh penggunaan React dan Material Design
+  yang sudah terintegrasi dengan template.
+-->
+
+<!-- ========================================
+     MATERIAL DESIGN COMPONENTS
+     ======================================== -->
+
+<!-- 1. Material Card dengan Elevation -->
+<div class="material-card" style="padding: 20px; margin: 20px 0;">
+    <h3 class="material-title">Card Judul</h3>
+    <p class="material-body">Ini adalah contoh Material Design card dengan elevation effect saat hover.</p>
+    <button class="btn" style="background: #d32f2f; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+        Click untuk Ripple Effect
+    </button>
+</div>
+
+<!-- 2. Material Typography -->
+<div style="padding: 20px;">
+    <h2 class="material-title">Material Title</h2>
+    <p class="material-subtitle">Material Subtitle - informasi tambahan</p>
+    <p class="material-body">Material Body text untuk konten utama dengan readability yang baik.</p>
+    <span class="material-caption">Material Caption - detail kecil atau metadata</span>
+</div>
+
+<!-- 3. Material Icons -->
+<div style="padding: 20px;">
+    <span class="material-icons" style="font-size: 24px; color: #d32f2f;">home</span>
+    <span class="material-icons" style="font-size: 24px; color: #1976d2;">favorite</span>
+    <span class="material-icons" style="font-size: 24px; color: #388e3c;">star</span>
+    <span class="material-icons" style="font-size: 24px; color: #f57c00;">notifications</span>
+</div>
+
+<!-- 4. Material Input dengan Focus Effect -->
+<div style="padding: 20px;">
+    <input type="text" placeholder="Type here..." style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 4px; width: 300px;">
+    <textarea placeholder="Comments..." style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 4px; width: 300px; margin-top: 10px;"></textarea>
+</div>
+
+<!-- ========================================
+     REACT COMPONENTS
+     ======================================== -->
+
+<!-- 5. React Material Card Component -->
+<div data-react-component="MaterialCard" 
+     data-props='{"title":"React Card Title","className":"my-custom-class"}'>
+    <p>Ini adalah konten di dalam React Material Card.</p>
+    <p>React akan otomatis mounting component ini.</p>
+</div>
+
+<!-- 6. React Material Button Component -->
+<div data-react-component="MaterialButton" 
+     data-props='{"variant":"contained"}'>
+    Click Me - React Button
+</div>
+
+<!-- 7. React Material Button Outlined -->
+<div data-react-component="MaterialButton" 
+     data-props='{"variant":"outlined"}'>
+    Outlined Button
+</div>
+
+<!-- 8. Dynamic Content Loader -->
+<div data-react-component="DynamicContentLoader" 
+     data-props='{"endpoint":"/wp-json/wp/v2/posts?per_page=3"}'>
+    Loading posts...
+</div>
+
+<!-- ========================================
+     KOMBINASI MATERIAL DESIGN + REACT
+     ======================================== -->
+
+<!-- 9. Card dengan React Component di dalamnya -->
+<div class="material-card" style="padding: 20px; margin: 20px 0;">
+    <h3 class="material-title">Hybrid Example</h3>
+    <p class="material-body">Material Design card dengan React component di dalamnya:</p>
+    
+    <div data-react-component="MaterialButton" 
+         data-props='{"variant":"contained"}'>
+        React Button Inside MD Card
+    </div>
+</div>
+
+<!-- ========================================
+     CUSTOM STYLING EXAMPLES
+     ======================================== -->
+
+<!-- 10. Custom Styled Material Components -->
+<div style="padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 20px 0;">
+    <h4 style="color: #d32f2f; margin-bottom: 15px; font-family: 'Roboto', sans-serif;">
+        <span class="material-icons" style="vertical-align: middle; margin-right: 8px;">info</span>
+        Custom Info Card
+    </h4>
+    <p style="color: #757575; line-height: 1.6;">
+        Anda bisa menggabungkan Material Design principles dengan custom styling.
+    </p>
+</div>
+
+<!-- ========================================
+     PRACTICAL EXAMPLES
+     ======================================== -->
+
+<!-- 11. Berita Card dengan Material Design -->
+<article class="berita-terbaru-item" style="display: flex; gap: 15px; padding: 15px; background: #fff; border-radius: 8px; margin: 10px 0;">
+    <div style="flex: 0 0 120px;">
+        <img src="https://via.placeholder.com/120x90" alt="News" style="width: 100%; border-radius: 4px;">
+    </div>
+    <div style="flex: 1;">
+        <h3 class="material-subtitle" style="margin-bottom: 8px;">
+            <a href="#" style="color: #212121; text-decoration: none;">Judul Berita Dengan Material Design</a>
+        </h3>
+        <p class="material-caption">
+            <span class="material-icons" style="font-size: 14px; vertical-align: middle;">schedule</span>
+            2 jam yang lalu
+        </p>
+    </div>
+</article>
+
+<!-- ========================================
+     INTERACTIVE DEMO
+     ======================================== -->
+
+<!-- 12. Interactive Button Demo -->
+<div style="padding: 30px; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; margin: 20px 0;">
+    <h3 style="margin-bottom: 20px;">Interactive Material Design Demo</h3>
+    <button onclick="alert('Material Design + React is working!')" 
+            style="background: white; color: #667eea; padding: 12px 30px; border: none; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 16px;">
+        <span class="material-icons" style="vertical-align: middle; margin-right: 5px; font-size: 18px;">touch_app</span>
+        Test Ripple Effect
+    </button>
+</div>
+
+<!-- ========================================
+     DEBUGGING SECTION
+     ======================================== -->
+
+<!-- 13. Debug Console Commands -->
+<div style="padding: 20px; background: #263238; color: #aed581; font-family: 'Courier New', monospace; border-radius: 8px; margin: 20px 0;">
+    <h4 style="color: #fff; margin-bottom: 15px;">🛠️ Debug Commands (Open Browser Console)</h4>
+    <pre style="margin: 0; line-height: 1.8;">
+// Check React status
+window.HaliyoraReactUtils.checkStatus();
+
+// Check if React is loaded
+window.HaliyoraReactUtils.isLoaded();
+
+// Reinitialize React components
+window.HaliyoraReactUtils.init();
+
+// Reinitialize Material Design
+window.HaliyoraMaterialDesign.init();
+
+// Run full system check
+window.runHaliyoraSystemCheck();
+    </pre>
+</div>
+
+<!-- ========================================
+     WORDPRESS INTEGRATION
+     ======================================== -->
+
+<!-- 14. WordPress Loop dengan Material Design -->
+<?php
+/*
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <article class="material-card" style="padding: 20px; margin: 20px 0;">
+        <h2 class="material-title">
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        </h2>
+        <div class="material-caption" style="margin: 10px 0;">
+            <span class="material-icons" style="font-size: 14px; vertical-align: middle;">schedule</span>
+            <?php echo get_the_date(); ?>
+        </div>
+        <div class="material-body">
+            <?php the_excerpt(); ?>
+        </div>
+        <a href="<?php the_permalink(); ?>" 
+           style="display: inline-block; background: #d32f2f; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; margin-top: 10px;">
+            Baca Selengkapnya
+            <span class="material-icons" style="font-size: 16px; vertical-align: middle; margin-left: 5px;">arrow_forward</span>
+        </a>
+    </article>
+<?php endwhile; endif; ?>
+*/
+?>
+
+<!-- ========================================
+     NOTES
+     ======================================== -->
+
+<!--
+CATATAN PENTING:
+
+1. LAYOUT TIDAK BERUBAH
+   - Semua contoh di atas tidak mengubah layout template yang sudah ada
+   - Material Design dan React terintegrasi secara non-invasive
+
+2. AUTO-INITIALIZATION
+   - React akan otomatis mounting components dengan data-react-component
+   - Material Design effects otomatis aktif pada elements yang sesuai
+
+3. COMPATIBILITY
+   - Semua fitur backwards compatible dengan styling existing
+   - Bisa dicampur dengan HTML/CSS biasa
+
+4. PERFORMANCE
+   - React loaded dari CDN (cached)
+   - Material Design effects menggunakan CSS transforms (GPU accelerated)
+   - Minimal reflows/repaints
+
+5. BROWSER SUPPORT
+   - Chrome 90+
+   - Firefox 88+
+   - Safari 14+
+   - Edge 90+
+
+6. TROUBLESHOOTING
+   - Buka Browser Console untuk melihat status
+   - Gunakan debug commands di atas
+   - Check documentation: REACT-MATERIAL-DESIGN.md
+-->
