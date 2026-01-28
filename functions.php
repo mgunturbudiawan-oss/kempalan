@@ -2365,3 +2365,55 @@ add_action('wp_ajax_haliyora_check_github_update', function() {
     ));
 });
 
+/**
+ * Integration with WordPress Native Theme Update System
+ */
+add_filter('pre_set_site_transient_update_themes', function($transient) {
+    if (empty($transient->checked)) {
+        return $transient;
+    }
+
+    $theme_slug = 'haliyora';
+    $repo_url = 'https://api.github.com/repos/mgunturbudiawan-oss/kempalan/releases/latest';
+    
+    // Use cache to avoid hitting GitHub API on every page load
+    $cache_key = 'haliyora_github_update_check';
+    $remote = get_transient($cache_key);
+
+    if (false === $remote) {
+        $args = array(
+            'timeout'    => 10,
+            'user-agent' => 'WordPress/Haliyora-Theme',
+            'headers'    => array(
+                'Accept' => 'application/vnd.github.v3+json',
+            ),
+        );
+
+        $response = wp_remote_get($repo_url, $args);
+
+        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
+            return $transient;
+        }
+
+        $remote = json_decode(wp_remote_retrieve_body($response));
+        set_transient($cache_key, $remote, 12 * HOUR_IN_SECONDS);
+    }
+
+    if ($remote && !empty($remote->tag_name)) {
+        $latest_version = ltrim($remote->tag_name, 'vV');
+        $theme = wp_get_theme($theme_slug);
+        
+        if (version_compare($theme->get('Version'), $latest_version, '<')) {
+            $res = array(
+                'theme'       => $theme_slug,
+                'new_version' => $latest_version,
+                'url'         => $remote->html_url,
+                'package'     => $remote->zipball_url,
+            );
+            $transient->response[$theme_slug] = $res;
+        }
+    }
+
+    return $transient;
+});
+
